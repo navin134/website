@@ -1,0 +1,134 @@
+<html>
+<head>
+	<script>
+		var defs = [
+		"scale of abosolute energy species controls",
+		"gravity equation",
+		"avogadros number",
+		"fine structure constant",
+		"father of modern quantum mechanics",
+		"the first implied differentiation theory"
+		];
+		
+		var terms = [
+		"kardashev scale",
+		"a = g(m1*m2/r*r)",
+		"1.02214076*10^23",
+		"1/137",
+		"james bohr",
+		"demons"
+		];
+		/*var check = [
+		true,
+		true,
+		true,
+		true,
+		true,
+		true];*/
+		var check = [
+		, false, false, false, false, false];
+		var counterQ = 0;
+		var score = 0;
+		var bool = false;
+		
+		
+		/*function nextQ(){
+			//var bool = false; //document.getElementById("terms").checked;
+			console.log(bool);
+			if(bool){
+				displayCue(terms);
+				
+			}else{
+				displayCue(defs);
+				
+			}
+			document.getElementById("image").style.visibility = "hidden";
+		}*/
+		
+		function boolThing(boolRadio) {
+			var list;
+			if(boolRadio){
+				list = terms;
+				
+			}else{
+				list = defs;
+				
+			}
+			document.getElementById("image").style.visibility = "hidden";
+			return list;
+			
+		}
+		
+		function displayCue() {
+			var list = boolThing(false);
+			var rand;
+			var counterThing = 0;
+			do {
+				if((counterThing < list.length) && (counterQ < list.length)){
+					alert("runout");
+					break;
+					
+				}
+				rand = parseInt(Math.random()*list.length);
+				alert(rand);
+				
+				console.log(rand);
+				console.log(counterThing);
+				var woosh = !check[rand];
+				if(woosh) {
+					counterThing++;
+					
+				}
+				
+			} while();
+			if(check[rand]){
+				document.getElementById("clue").value = list[rand];
+				check[rand] = false;
+				counterQ++;
+			}
+			
+		}
+		 
+		function checkAnswer() {
+			var boolbool = true;
+			var list = boolThing(boolbool);
+			var answ = document.getElementById("answer").value;
+			var str;
+			if(asnw == list[counterQ]) {
+				str = "images/suc.jpeg";
+			}else {
+				str = "images/R.png";
+			}
+			
+			var midPoint = window.innerWidth;
+			document.getElementById("image").style.left = (midPoint/2)-158;
+			document.getElementById("image").style.visibility = "visible";
+			
+		}
+		
+	</script>
+</head>
+<body>
+<center>
+<h1>Vocab Quiz</h1>
+
+<input type="radio" id="terms" name="qType" onchange="displayCue()" checked>
+  <label for="terms">Words</label>
+<input type="radio" id="defs" name="qType">
+  <label for="defs">Definitions</label>
+<input type="button" value="Next" onclick="displayCue()"/>
+
+<br/><br/>
+<input type = "text" id="clue" readonly size=40>
+
+<br/><br/>
+<input type = "text" id="answer" onfocusout="checkAnswer()" size=40>
+<br/>
+<input type="button" value="Check Answer" onclick="checkAnswer()"/>
+</center> 
+
+<div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;"/>
+
+<img id="winLoss" src=""/>
+</body>
+</html>
