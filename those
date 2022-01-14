@@ -1,5 +1,6 @@
-<html>
+<!DOCTYPE html>
 <head>
+    <title>This is a site</title>
 	<script>
 		var defs = [
 		"scale of abosolute energy species controls",
@@ -18,18 +19,18 @@
 		"james bohr",
 		"demons"
 		];
-		/*var check = [
-		true,
-		true,
-		true,
-		true,
-		true,
-		true];*/
 		var check = [
-		, false, false, false, false, false];
+		true,
+		true,
+		true,
+		true,
+		true,
+		true];
+		//var check = [true, false, false, false, false, false];
 		var counterQ = 0;
 		var score = 0;
 		var bool = false;
+		var rand;
 		
 		
 		/*function nextQ(){
@@ -45,7 +46,7 @@
 			document.getElementById("image").style.visibility = "hidden";
 		}*/
 		
-		function boolThing(boolRadio) {
+			function boolThing(boolRadio) {
 			var list;
 			if(boolRadio){
 				list = terms;
@@ -61,49 +62,57 @@
 		
 		function displayCue() {
 			var list = boolThing(false);
-			var rand;
+			alert(list);
 			var counterThing = 0;
 			do {
-				if((counterThing < list.length) && (counterQ < list.length)){
-					alert("runout");
+			    rand = parseInt(Math.random()*list.length);
+			    boolList = [];
+			    for(int i=0; i<check.length; i++) {
+			        if(check[i]) {
+			            boolList.push(i);
+			            
+			        }
+			    }
+				if(randChecker(rand, boolList) || (counterQ < list.length)){
 					break;
 					
 				}
-				rand = parseInt(Math.random()*list.length);
-				alert(rand);
-				
-				console.log(rand);
-				console.log(counterThing);
-				var woosh = !check[rand];
-				if(woosh) {
-					counterThing++;
-					
-				}
-				
-			} while();
-			if(check[rand]){
+			} while(boolList.length > 0);
 				document.getElementById("clue").value = list[rand];
 				check[rand] = false;
 				counterQ++;
-			}
 			
 		}
+		 
+		 function randChecker(rand, boolList) {
+		     var rander = false;
+		     for(int i=0; i<boolList.length; i++) {
+		         if(rand == boolList[i]) {
+		             rander = true;
+		             break;
+		         }
+		     }
+		     
+		     return rander;
+		 }
 		 
 		function checkAnswer() {
 			var boolbool = true;
 			var list = boolThing(boolbool);
 			var answ = document.getElementById("answer").value;
-			var str;
-			if(asnw == list[counterQ]) {
-				str = "images/suc.jpeg";
+			if(asnw == list[rand]) {
+				document.getElementById("winLoss").src = "images/suc.jpeg";
 			}else {
-				str = "images/R.png";
+				document.getElementById("winLoss").src = "images/R.png";
 			}
-			
 			var midPoint = window.innerWidth;
 			document.getElementById("image").style.left = (midPoint/2)-158;
 			document.getElementById("image").style.visibility = "visible";
 			
+		}
+		
+		function test() {
+		    alert();
 		}
 		
 	</script>
@@ -122,13 +131,15 @@
 <input type = "text" id="clue" readonly size=40>
 
 <br/><br/>
-<input type = "text" id="answer" onfocusout="checkAnswer()" size=40>
+<input type = "text" id="answer" size=40>
 <br/>
 <input type="button" value="Check Answer" onclick="checkAnswer()"/>
+<input type="button" value="test" onclick="test()"/>
 </center> 
 
-<div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;"/>
+<div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;">
+<img id="winLoss" src="images/R.png"/>
+</div>
 
-<img id="winLoss" src=""/>
 </body>
 </html>
