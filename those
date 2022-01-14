@@ -1,4 +1,3 @@
-https://frameboxxindore.com/other/how-do-you-unblock-a-school-administrator-on-a-chromebook.html
 <!DOCTYPE html>
 <head>
     <title>This is a site</title>
@@ -63,40 +62,47 @@ https://frameboxxindore.com/other/how-do-you-unblock-a-school-administrator-on-a
 		
 		function displayCue() {
 			var list = boolThing(false);
-			alert(list);
 			var counterThing = 0;
 			do {
+				console.log(counterThing);
 			    rand = parseInt(Math.random()*list.length);
-			    boolList = [];
-			    for(int i=0; i<check.length; i++) {
+			    var boolList = [];
+			    for(var i=0; i<check.length; i++) {
 			        if(check[i]) {
 			            boolList.push(i);
-			            
+						//alert(i);
+			            console.log(boolList);
 			        }
 			    }
 				if(randChecker(rand, boolList) || (counterQ < list.length)){
+					alert("thing");
 					break;
 					
 				}
+				console.log(boolList.length);
+				counterThing++;
 			} while(boolList.length > 0);
 				document.getElementById("clue").value = list[rand];
 				check[rand] = false;
+				console.log(check);
 				counterQ++;
-			
+		
 		}
-		 
-		 function randChecker(rand, boolList) {
-		     var rander = false;
-		     for(int i=0; i<boolList.length; i++) {
-		         if(rand == boolList[i]) {
-		             rander = true;
-		             break;
-		         }
-		     }
+		
+		function randChecker(rand, boolList) {
+		    var rander = false;
+		    for(var i=0; i<boolList.length; i++) {
+				console.log(boolList[i]);
+				console.log(rand);
+				if(rand == boolList[i]) {
+					rander = true;
+					break;
+				}
+		    }
 		     
-		     return rander;
-		 }
-		 
+		    return rander;
+		}
+		
 		function checkAnswer() {
 			var boolbool = true;
 			var list = boolThing(boolbool);
