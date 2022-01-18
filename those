@@ -61,39 +61,45 @@
 		}
 		
 		function displayCue() {
-			var list = boolThing(false);
-			var counterThing = 0;
-			do {
-				console.log(counterThing);
-			    rand = parseInt(Math.random()*list.length);
-			    var boolList = [];
-			    for(var i=0; i<check.length; i++) {
-			        if(check[i]) {
-			            boolList.push(i);
-						//alert(i);
-			            console.log(boolList);
-			        }
-			    }
-				if(randChecker(rand, boolList) || (counterQ >= list.length)){
-					alert("thing");
-					break;
-					
-				}
-				console.log(boolList.length);
-				counterThing++;
-			} while(boolList.length > 0);
-				document.getElementById("clue").value = list[rand];
-				check[rand] = false;
-				console.log(check);
-				counterQ++;
+			var boolbool = false; //document.getElementById("terms").checked;
+			var list = boolThing(boolbool);
+			if(counterQ <= list.length) {
+				var counterThing = 0;
+				do {
+					//console.log(counterThing);
+					rand = parseInt(Math.random()*list.length);
+					var boolList = [];
+					for(var i=0; i<check.length; i++) {
+						if(check[i]) {
+							boolList.push(i);
+							//alert(i);
+							//console.log(boolList);
+						}
+					}
+					if(randChecker(rand, boolList)){
+						alert("thing");
+						break;
+						
+					}
+					//console.log(boolList.length);
+					counterThing++;
+				} while(boolList.length > 0);
+					document.getElementById("clue").value = list[rand];
+					check[rand] = false;
+					//console.log(check);
+					counterQ++;
+			}else {
+				finished();
+				//console.log("works");
+			}
 		
 		}
 		
 		function randChecker(rand, boolList) {
 		    var rander = false;
 		    for(var i=0; i<boolList.length; i++) {
-				console.log(boolList[i]);
-				console.log(rand);
+				//console.log(boolList[i]);
+				//console.log(rand);
 				if(rand == boolList[i]) {
 					rander = true;
 					break;
@@ -104,18 +110,24 @@
 		}
 		
 		function checkAnswer() {
-			var boolbool = true;
+			var boolbool = true; //document.getElementById("terms").checked;
 			var list = boolThing(boolbool);
 			var answ = document.getElementById("answer").value;
-			if(asnw == list[rand]) {
+			if(answ == list[rand]) {
 				document.getElementById("winLoss").src = "images/suc.jpeg";
 			}else {
 				document.getElementById("winLoss").src = "images/R.png";
 			}
-			var midPoint = window.innerWidth;
-			document.getElementById("image").style.left = (midPoint/2)-158;
+			//var midPoint = window.innerWidth;
+			//document.getElementById("image").style.left = (midPoint/2)-158;
 			document.getElementById("image").style.visibility = "visible";
 			
+		}
+		
+		function finished() {
+			document.getElementById("clue").value = "Finished!";
+			document.getElementById("answer").value = parseInt((check.length / score) * 10);
+			alert("Congratulations");
 		}
 		
 		function test() {
@@ -145,8 +157,9 @@
 </center> 
 
 <div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;">
-<img id="winLoss" src="images/R.png"/>
+<img id="winLoss" src="images/R.png" width="500"/>
 </div>
+
 
 </body>
 </html>
