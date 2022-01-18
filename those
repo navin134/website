@@ -74,7 +74,7 @@
 			            console.log(boolList);
 			        }
 			    }
-				if(randChecker(rand, boolList) || (counterQ < list.length)){
+				if(randChecker(rand, boolList) || (counterQ >= list.length)){
 					alert("thing");
 					break;
 					
