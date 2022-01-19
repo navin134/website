@@ -13,8 +13,8 @@
 		
 		var terms = [
 		"kardashev scale",
-		"a = g(m1*m2/r*r)",
-		"1.02214076*10^23",
+		"f=g(m1*m2/(r*r))",
+		"6.02214076*10^23",
 		"1/137",
 		"james bohr",
 		"demons"
@@ -29,7 +29,7 @@
 		//var check = [true, false, false, false, false, false];
 		var counterQ = 0;
 		var score = 0;
-		var bool = false;
+		//var bool = true;
 		var rand;
 		
 		
@@ -61,37 +61,41 @@
 		}
 		
 		function displayCue() {
-			var boolbool = false; //document.getElementById("terms").checked;
-			var list = boolThing(boolbool);
-			if(counterQ <= list.length) {
-				var counterThing = 0;
-				do {
-					//console.log(counterThing);
-					rand = parseInt(Math.random()*list.length);
-					var boolList = [];
-					for(var i=0; i<check.length; i++) {
-						if(check[i]) {
-							boolList.push(i);
-							//alert(i);
-							//console.log(boolList);
+			//if(bool) {
+				if(counterQ < check.length) {
+					var boolbool = false; //document.getElementById("terms").checked;
+					var list = boolThing(boolbool);
+					document.getElementById("answer").value = "";
+					var counterThing = 0;
+					do {
+						//console.log(counterThing);
+						rand = parseInt(Math.random()*list.length);
+						var boolList = [];
+						for(var i=0; i<check.length; i++) {
+							if(check[i]) {
+								boolList.push(i);
+								//alert(i);
+								//console.log(boolList);
+							}
 						}
-					}
-					if(randChecker(rand, boolList)){
-						alert("thing");
-						break;
-						
-					}
-					//console.log(boolList.length);
-					counterThing++;
-				} while(boolList.length > 0);
-					document.getElementById("clue").value = list[rand];
-					check[rand] = false;
-					//console.log(check);
-					counterQ++;
-			}else {
-				finished();
-				//console.log("works");
-			}
+						if(randChecker(rand, boolList)){
+							//alert("thing");
+							break;
+							
+						}
+						//console.log(boolList.length);
+						counterThing++;
+					} while(boolList.length > 0);
+						document.getElementById("clue").value = list[rand];
+						check[rand] = false;
+						//console.log(check);
+						counterQ++;
+						bool = false;
+				}else {
+					finished();
+					//console.log("works");
+				}
+			//}
 		
 		}
 		
@@ -113,13 +117,14 @@
 			var boolbool = true; //document.getElementById("terms").checked;
 			var list = boolThing(boolbool);
 			var answ = document.getElementById("answer").value;
+			answ = answ.toLowerCase();
 			if(answ == list[rand]) {
 				document.getElementById("winLoss").src = "images/suc.jpeg";
+				bool = true;
 			}else {
 				document.getElementById("winLoss").src = "images/R.png";
 			}
-			//var midPoint = window.innerWidth;
-			//document.getElementById("image").style.left = (midPoint/2)-158;
+			imgToMiddle
 			document.getElementById("image").style.visibility = "visible";
 			
 		}
@@ -157,7 +162,7 @@
 </center> 
 
 <div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;">
-<img id="winLoss" src="images/R.png" width="500"/>
+<font color="white">iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</font> <img id="winLoss" src="" width="500"/>
 </div>
 
 
