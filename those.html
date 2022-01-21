@@ -120,7 +120,7 @@
     			var answ = document.getElementById("answer").value;
     			answ = answ.toLowerCase();
     			if(answ == list[rand]) {
-    				document.getElementById("winLoss").src = "images/suc.jpeg";
+    				document.getElementById("winLoss").src = "images/success.jpeg";
     				score++;
     			}else {
     				document.getElementById("winLoss").src = "images/R.png";
@@ -129,6 +129,7 @@
     			
     			document.getElementById("image").style.visibility = "visible";
     			bool = true;
+				console.log(window.screen.width);
 		    }
 			
 		}
@@ -144,6 +145,14 @@
 		}
 		
 	</script>
+	<style> 
+		.centered {
+			position:absolute;
+			top:250px;
+			right:100px;
+			
+		}
+	</style>
 </head>
 <body>
 <center>
@@ -165,8 +174,8 @@
 <input type="button" value="test" onclick="test()"/>
 </center> 
 
-<div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;">
-<font color="white">iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</font> <img id="winLoss" src="" width="500"/>
+<div class="centered" id="image" style="visibility:visible;">
+<img id="winLoss" src="images/R.png" width="500"/>
 </div>
 
 </body>
