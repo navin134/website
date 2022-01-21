@@ -29,7 +29,7 @@
 		//var check = [true, false, false, false, false, false];
 		var counterQ = 0;
 		var score = 0;
-		//var bool = true;
+		var bool = true;
 		var rand;
 		
 		
@@ -61,7 +61,7 @@
 		}
 		
 		function displayCue() {
-			//if(bool) {
+			if(bool) {
 				if(counterQ < check.length) {
 					var boolbool = false; //document.getElementById("terms").checked;
 					var list = boolThing(boolbool);
@@ -90,12 +90,12 @@
 						check[rand] = false;
 						//console.log(check);
 						counterQ++;
-						bool = false;
 				}else {
 					finished();
 					//console.log("works");
 				}
-			//}
+				bool = false;
+		    }
 		
 		}
 		
@@ -114,24 +114,28 @@
 		}
 		
 		function checkAnswer() {
-			var boolbool = true; //document.getElementById("terms").checked;
-			var list = boolThing(boolbool);
-			var answ = document.getElementById("answer").value;
-			answ = answ.toLowerCase();
-			if(answ == list[rand]) {
-				document.getElementById("winLoss").src = "images/suc.jpeg";
-				bool = true;
-			}else {
-				document.getElementById("winLoss").src = "images/R.png";
-			}
-			imgToMiddle
-			document.getElementById("image").style.visibility = "visible";
+		    if(!bool) {
+    			var boolbool = true; //document.getElementById("terms").checked;
+    			var list = boolThing(boolbool);
+    			var answ = document.getElementById("answer").value;
+    			answ = answ.toLowerCase();
+    			if(answ == list[rand]) {
+    				document.getElementById("winLoss").src = "images/suc.jpeg";
+    				score++;
+    			}else {
+    				document.getElementById("winLoss").src = "images/R.png";
+    				
+    			}
+    			
+    			document.getElementById("image").style.visibility = "visible";
+    			bool = true;
+		    }
 			
 		}
 		
 		function finished() {
 			document.getElementById("clue").value = "Finished!";
-			document.getElementById("answer").value = parseInt((check.length / score) * 10);
+			document.getElementById("answer").value = parseInt((score / check.length) * 100) + "%";
 			alert("Congratulations");
 		}
 		
@@ -164,7 +168,6 @@
 <div id="image" style="position:absolute; top: 250;left:450; visibility:hidden;">
 <font color="white">iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</font> <img id="winLoss" src="" width="500"/>
 </div>
-
 
 </body>
 </html>
