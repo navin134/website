@@ -81,7 +81,6 @@
 						if(randChecker(rand, boolList)){
 							//alert("thing");
 							break;
-							
 						}
 						//console.log(boolList.length);
 						counterThing++;
@@ -118,18 +117,18 @@
     			var boolbool = true; //document.getElementById("terms").checked;
     			var list = boolThing(boolbool);
     			var answ = document.getElementById("answer").value;
+				centered = document.getElementById("centered").style;
     			answ = answ.toLowerCase();
+				var halfpicturelength;
     			if(answ == list[rand]) {
     				document.getElementById("winLoss").src = "images/success.jpeg";
     				score++;
     			}else {
-    				document.getElementById("winLoss").src = "images/R.png";
-    				
+    				document.getElementById("winLoss").src = "images/R.png"; 
     			}
-    			
+				
     			document.getElementById("image").style.visibility = "visible";
     			bool = true;
-				console.log(window.screen.width);
 		    }
 			
 		}
@@ -142,6 +141,7 @@
 		
 		function test() {
 		    alert();
+			console.log(window.screen.width);
 		}
 		
 	</script>
@@ -149,7 +149,7 @@
 		.centered {
 			position:absolute;
 			top:250px;
-			right:100px;
+			right:390px;
 			
 		}
 	</style>
@@ -174,7 +174,7 @@
 <input type="button" value="test" onclick="test()"/>
 </center> 
 
-<div class="centered" id="image" style="visibility:visible;">
+<div class="centered" id="image" style="visibility:hidden;">
 <img id="winLoss" src="images/R.png" width="500"/>
 </div>
 
