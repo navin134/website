@@ -63,7 +63,7 @@
 		function displayCue() {
 			if(bool) {
 				if(counterQ < check.length) {
-					var boolbool = false; //document.getElementById("terms").checked;
+					var boolbool = document.getElementById("terms").checked;
 					var list = boolThing(boolbool);
 					document.getElementById("answer").value = "";
 					var counterThing = 0;
@@ -113,18 +113,19 @@
 		}
 		
 		function checkAnswer() {
+			//alert();
 		    if(!bool) {
-    			var boolbool = true; //document.getElementById("terms").checked;
+    			var boolbool = document.getElementById("terms").checked;
     			var list = boolThing(boolbool);
     			var answ = document.getElementById("answer").value;
-				centered = document.getElementById("centered").style;
     			answ = answ.toLowerCase();
-				var halfpicturelength;
     			if(answ == list[rand]) {
     				document.getElementById("winLoss").src = "images/success.jpeg";
     				score++;
+					
     			}else {
     				document.getElementById("winLoss").src = "images/R.png"; 
+					
     			}
 				
     			document.getElementById("image").style.visibility = "visible";
@@ -134,14 +135,33 @@
 		}
 		
 		function finished() {
+			document.getElementById("image").style.visibility = "hidden";
 			document.getElementById("clue").value = "Finished!";
 			document.getElementById("answer").value = parseInt((score / check.length) * 100) + "%";
 			alert("Congratulations");
+			document.getElementById("CH").value = "Reset";
+			document.getElementById("CH").onclick = "reset()";
+			
 		}
 		
-		function test() {
-		    alert();
-			console.log(window.screen.width);
+		function reset() {
+			alert();
+			for(i=0; i<check.length; i++) {
+				check[i] = true;
+				
+			}
+			document.getElementById("clue").value = "";
+			document.getElementById("answer").value = "";
+		}
+		
+		function devTool() {
+			for(i=0; i<check.length; i++) {
+				check[i] = false;
+				
+			}
+			score = 6;
+			finished();
+			counterQ = 6;
 		}
 		
 	</script>
@@ -158,7 +178,7 @@
 <center>
 <h1>Vocab Quiz</h1>
 
-<input type="radio" id="terms" name="qType" onchange="displayCue()" checked>
+<input type="radio" id="terms" name="qType" onchange="displayCue()">
   <label for="terms">Words</label>
 <input type="radio" id="defs" name="qType">
   <label for="defs">Definitions</label>
@@ -170,8 +190,8 @@
 <br/><br/>
 <input type = "text" id="answer" size=40>
 <br/>
-<input type="button" value="Check Answer" onclick="checkAnswer()"/>
-<input type="button" value="test" onclick="test()"/>
+<input type="button" value="Check Answer" onclick="checkAnswer()" id="CH"/>
+<input type="button" value="devTool" onclick="devTool()"/>
 </center> 
 
 <div class="centered" id="image" style="visibility:hidden;">
