@@ -1,0 +1,135 @@
+<head>
+  <script language = "javaScript">
+
+     var imageList = [
+            ["sword.png", 1],
+            ["shield.png", 1],
+            ["crown.png", 1],
+            ["pitchfork.png", 1],
+            ["bowl.png", 1],
+            ["mug.png", 1],
+            ["potion.png", 1],
+            ["wand.png", 1],
+            ["hay.png", 1],
+            ["bow.png", 1]
+            ];
+     /*var boolList = [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    ];*/
+    var frontList = [];
+    var counter = 0;
+    var firstCard;
+
+    function choose(){
+    	//alert(imageNum+"chooseCalled");
+        firstCard = parseInt(window.event.target.id);//gets value of button just called through param
+        document.getElementById(firstCard+"").src = frontList[firstCard];
+    	for(var i=0; i<20; i++) {
+			document.getElementById(0+"").onclick = compare;
+            
+		}
+        //window.event.target.value;
+    }
+    
+    function compare() {
+		var secondCard = parseInt(window.event.target.id);//gets id of button just called
+        document.getElementById(secondCard+"").src = frontList[secondCard];
+        if(frontList[secondCard] == frontList[firstCard]) {
+        	//boolList[firstCard] = true;
+            //boolList[secondCard] = true;
+            counter++
+        }else {
+			document.getElementById(secondCard+"").src = "images/card.png";
+            document.getElementById(firstCard+"").src = "images/card.png";
+		}
+        for(var i=0; i<20; i++) {
+			document.getElementById(0+"").onclick = choose;
+            
+		}
+        
+	}
+
+    window.onload = function init() {
+      for(var i=0; i<20; i++) {
+        var rand = randomImage();
+        frontList.push(imageList[rand][0]);
+
+      }
+ 		//console.log(frontList);
+    }
+
+    function randomImage() {
+      while(true) {
+        var rand = parseInt(Math.random()*10);
+        if(imageList[rand][1]>=0) {
+        	imageList[rand][1]-=1;
+            break;
+		}
+
+      }
+
+        return rand;
+    }
+
+
+</script>
+</head>
+
+<body bgcolor="#8B4513">
+<font color="black" face="GothicI" size="+3">
+
+
+<div>
+<center>
+<h1> Choose Thy Cards </h1>
+</font>
+
+  <img src="images/card.png" id="0" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="1" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="2" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="3" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="4" onclick="choose()"width="100"/>
+  <br/>
+  <img src="images/card.png" id="5" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="6" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="7" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="8" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="9" onclick="choose()"width="100"/>
+  <br/>
+  <img src="images/card.png" id="10" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="11" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="12" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="13" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="14" onclick="choose()"width="100"/>
+  <br/>
+  <img src="images/card.png" id="15" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="16" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="17" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="18" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="19" onclick="choose()"width="100"/>
+
+
+
+</div>
+</body>
+
+</html>
