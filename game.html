@@ -13,11 +13,12 @@
 		["images/crystalBall.png", 1],
 		["images/bow.png", 1]
 	];
-    
-    	var frontList = [];
-    	var counter = 0;
+
+	var frontList = [];
+	var winCounter = 0;
+	var smartCounter = 0;
    	var firstCard;
-	var
+	var secondCard;
 	var timer;
 	var bool = true;
 
@@ -29,7 +30,6 @@
 		document.getElementById(firstCard+"").src = frontList[firstCard];
 		/*for(var i=0; i<20; i++) {
 				document.getElementById(i+"").onclick = compare;
-
 			}*/
 		//window.event.target.value;
 	}else{
@@ -42,16 +42,26 @@
 		//console.log(firstCard);
 		//console.log(secondCard);
 		secondCard = imageNum;//this.id);//window.event.target.id);//gets id of button just called
-        	document.getElementById(secondCard+"").src = frontList[secondCard];
+        document.getElementById(secondCard+"").src = frontList[secondCard];
 		if(frontList[secondCard] == frontList[firstCard]) {
-        		//boolList[firstCard] = true;
-            		//boolList[secondCard] = true;
-            		counter++
+			//boolList[firstCard] = true;
+			//boolList[secondCard] = true;
+			winCounter++;
 		}else{
 			//console.log(secondCard);
-			timer = setTimeout(timeDelay(), 1000);
+			timer = setTimeout("timeDelay()", 1000);
 		}
-        
+		smartCounter++;
+        if(winCounter>=15) {
+			if(smartCounter < 20) {
+				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n you did amazing you were "+(smartCounter / 20)+" percent better than the average person");
+				
+			}else{
+				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n although you did "+(smartCounter / 20)+" percent worse than the average person");
+
+				
+			}
+		}
 	}
 	
 	function timeDelay() {
