@@ -1,90 +1,64 @@
 <head>
   <script language = "javaScript">
-
-     var imageList = [
-            ["images/sword.png", 1],
-            ["images/shield.png", 1],
-            ["images/tree.png", 1],
-            //["images/pitchfork.png", 1],
-			["images/1.jfif", 1],
-            //["images/bowl.png", 1],
-			["images/2.jfif", 1],
-            //["images/mug.png", 1],
-			["images/3.jfif", 1],
-            ["images/potion.png", 1],
-            //["images/wand.png", 1],
-            //["images/hay.png", 1],
-			["images/4.jfif", 1],
-			["images/5.jfif", 1],
-            //["images/bow.png", 1]
-			["images/6.jfif", 1]
-            ];
-     /*var boolList = [
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-    ];*/
+	var functionList = [
+    var imageList = [
+		["images/sword.png", 1],
+		["images/shield.png", 1],
+		["images/tree.png", 1],
+		["images/pitchfork.png", 1],
+		["images/bowl.png", 1],
+		["images/mug.png", 1],
+		["images/potion.png", 1],
+		["images/wand.png", 1],
+		["images/crystalBall.png", 1],
+		["images/bow.png", 1]
+	];
+    
     var frontList = [];
     var counter = 0;
     var firstCard;
+	var secondCard;
 	var timer;
+	var bool;
 
+	function f(){
     function choose(){
     	//alert("chooseCalled");
-        firstCard = parseInt(window.event.target.id);//gets value of button just called through param
+		if(bool) {bool = false;}else{bool=true;}
+        firstCard = parseInt(this.id);//gets value of button just called through param
         document.getElementById(firstCard+"").src = frontList[firstCard];
-    	for(var i=0; i<20; i++) {
+    	/*for(var i=0; i<20; i++) {
 			document.getElementById(i+"").onclick = compare;
             
-		}
+		}*/
         //window.event.target.value;
     }
     
     function compare() {
-		var secondCard = parseInt(window.event.target.id);//gets id of button just called
+		console.log(firstCard);
+		console.log(secondCard);
+		secondCard = parseInt(this.id);//gets id of button just called
         document.getElementById(secondCard+"").src = frontList[secondCard];
-		var bool = frontList[secondCard] == frontList[firstCard];
-		if(bool) {
+		if(frontList[secondCard] == frontList[firstCard]) {
         	//boolList[firstCard] = true;
             //boolList[secondCard] = true;
             counter++
-			timeDelay();
 		}else{
-			timer = setTimeout(timeDelay.bind(bool, secondCard), 1000);
-			
+			//console.log(secondCard);
+			timer = setTimeout(timeDelay(), 1000);
 		}
         
 	}
 	
-	function timeDelay(bool, secondCard) {
-		if(bool) {
-			document.getElementById(firstCard+"").src = "images/card.png";
-			document.getElementById(secondCard+"").src = "images/card.png";
-		}
-		for(var i=0; i<20; i++) {
+	function timeDelay(bool) {
+		document.getElementById(firstCard+"").src = "images/card.png";
+		document.getElementById(secondCard+"").src = "images/card.png";
+		/*for(var i=0; i<20; i++) {
 			document.getElementById(0+"").onclick = choose;
             
-		}
-		
+		}*/
 	}
-
+	
     window.onload = function init() {
       for(var i=0; i<20; i++) {
         var rand = randomImage();
