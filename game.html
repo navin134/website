@@ -1,6 +1,6 @@
 <head>
   <script language = "javaScript">
-	var functionList = [
+	//var functionList = [
     var imageList = [
 		["images/sword.png", 1],
 		["images/shield.png", 1],
@@ -14,35 +14,39 @@
 		["images/bow.png", 1]
 	];
     
-    var frontList = [];
-    var counter = 0;
-    var firstCard;
-	var secondCard;
+    	var frontList = [];
+    	var counter = 0;
+   	var firstCard;
+	var
 	var timer;
-	var bool;
+	var bool = true;
 
-	function f(){
-    function choose(){
+    function choose(imageNum){
     	//alert("chooseCalled");
-		if(bool) {bool = false;}else{bool=true;}
-        firstCard = parseInt(this.id);//gets value of button just called through param
-        document.getElementById(firstCard+"").src = frontList[firstCard];
-    	/*for(var i=0; i<20; i++) {
-			document.getElementById(i+"").onclick = compare;
-            
-		}*/
-        //window.event.target.value;
+	if(bool) {
+		bool = false;
+		firstCard = imageNum;//parseInt(this.id);//gets value of button just called through param
+		document.getElementById(firstCard+"").src = frontList[firstCard];
+		/*for(var i=0; i<20; i++) {
+				document.getElementById(i+"").onclick = compare;
+
+			}*/
+		//window.event.target.value;
+	}else{
+		bool = true;
+		compare(imageNum);
+	}
     }
     
-    function compare() {
-		console.log(firstCard);
-		console.log(secondCard);
-		secondCard = parseInt(this.id);//gets id of button just called
-        document.getElementById(secondCard+"").src = frontList[secondCard];
+    function compare(imageNum) {
+		//console.log(firstCard);
+		//console.log(secondCard);
+		secondCard = imageNum;//this.id);//window.event.target.id);//gets id of button just called
+        	document.getElementById(secondCard+"").src = frontList[secondCard];
 		if(frontList[secondCard] == frontList[firstCard]) {
-        	//boolList[firstCard] = true;
-            //boolList[secondCard] = true;
-            counter++
+        		//boolList[firstCard] = true;
+            		//boolList[secondCard] = true;
+            		counter++
 		}else{
 			//console.log(secondCard);
 			timer = setTimeout(timeDelay(), 1000);
@@ -50,7 +54,7 @@
         
 	}
 	
-	function timeDelay(bool) {
+	function timeDelay() {
 		document.getElementById(firstCard+"").src = "images/card.png";
 		document.getElementById(secondCard+"").src = "images/card.png";
 		/*for(var i=0; i<20; i++) {
@@ -73,8 +77,8 @@
         var rand = parseInt(Math.random()*10);
         if(imageList[rand][1]>=0) {
         	imageList[rand][1]-=1;
-            break;
-		}
+            	break;
+	}
 
       }
 
@@ -94,29 +98,29 @@
 <h1> Choose Thy Cards </h1>
 </font>
 
-  <img src="images/card.png" id="0" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="1" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="2" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="3" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="4" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="0" onclick="choose(0)"width="100"/>
+  <img src="images/card.png" id="1" onclick="choose(1)"width="100"/>
+  <img src="images/card.png" id="2" onclick="choose(2)"width="100"/>
+  <img src="images/card.png" id="3" onclick="choose(3)"width="100"/>
+  <img src="images/card.png" id="4" onclick="choose(4)"width="100"/>
   <br/>
-  <img src="images/card.png" id="5" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="6" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="7" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="8" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="9" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="5" onclick="choose(5)"width="100"/>
+  <img src="images/card.png" id="6" onclick="choose(6)"width="100"/>
+  <img src="images/card.png" id="7" onclick="choose(7)"width="100"/>
+  <img src="images/card.png" id="8" onclick="choose(8)"width="100"/>
+  <img src="images/card.png" id="9" onclick="choose(9)"width="100"/>
   <br/>
-  <img src="images/card.png" id="10" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="11" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="12" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="13" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="14" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="10" onclick="choose(10)"width="100"/>
+  <img src="images/card.png" id="11" onclick="choose(11)"width="100"/>
+  <img src="images/card.png" id="12" onclick="choose(12)"width="100"/>
+  <img src="images/card.png" id="13" onclick="choose(13)"width="100"/>
+  <img src="images/card.png" id="14" onclick="choose(14)"width="100"/>
   <br/>
-  <img src="images/card.png" id="15" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="16" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="17" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="18" onclick="choose()"width="100"/>
-  <img src="images/card.png" id="19" onclick="choose()"width="100"/>
+  <img src="images/card.png" id="15" onclick="choose(15)"width="100"/>
+  <img src="images/card.png" id="16" onclick="choose(16)"width="100"/>
+  <img src="images/card.png" id="17" onclick="choose(17)"width="100"/>
+  <img src="images/card.png" id="18" onclick="choose(18)"width="100"/>
+  <img src="images/card.png" id="19" onclick="choose(19)"width="100"/>
 
 
 
