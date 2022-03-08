@@ -61,10 +61,10 @@
 	
 	function winnerWinnerChickenDinner() {
 			if(smartCounter < 20) {
-				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n you did amazing you were "+((smartCounter / 20)%100)+"% better than the average person");
+				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n you did amazing you were "+(((smartCounter / 20)*100)%100)+"% better than the average person");
 				
 			}else{
-				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n although you did "+((smartCounter / 20)%100)+"% worse than the average person");
+				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n although you did "+(((smartCounter / 20)*100)%100)+"% worse than the average person");
 
 				
 			}
