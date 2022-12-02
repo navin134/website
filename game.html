@@ -1,13 +1,15 @@
 <html>
 <head>
   <script language = "javaScript">
+      //<img src="images/card.png" id="18" onclick="choose(18)"width="120"/><font style="visibility:hidden;">00</font>
+  //<img src="images/card.png" id="19" onclick="choose(19)"width="120"/><font style="visibility:hidden;">00</font>
+      //["images/bowl.png", 1],
 	//var functionList = [
     var imageList = [
 		["images/sword.png", 1],
 		["images/shield.png", 1],
 		["images/tree.png", 1],
 		["images/pitchfork.png", 1],
-		["images/bowl.png", 1],
 		["images/mug.png", 1],
 		["images/potion.png", 1],
 		["images/wand.png", 1],
@@ -55,13 +57,13 @@
 			timer = setTimeout("timeDelay()", 750);
 		}
 		smartCounter++;
-		if(winCounter>=10) {
+		if(winCounter>=9) {
 			timer = setTimeout("winnerWinnerChickenDinner()", 200);
 		}
 	}
 	
 	function winnerWinnerChickenDinner() {
-			if(smartCounter < 20) {
+			if(smartCounter < 18) {
 				alert("congratulations!!! \n you took "+smartCounter+" number of guesses \n you did amazing you were "+(((smartCounter / 20)*100)%100)+"% better than the average person");
 				
 			}else{
@@ -83,7 +85,7 @@
 	
     window.onload = function init() {
 		//console.log(document.getElementsByClassName("buttons"));
-      for(var i=0; i<20; i++) {
+      for(var i=0; i<18; i++) {
         var rand = randomImage();
         frontList.push(imageList[rand][0]);
 
@@ -127,26 +129,26 @@
   <img src="images/card.png" id="2" onclick="choose(2)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="3" onclick="choose(3)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="4" onclick="choose(4)"width="120"/><font style="visibility:hidden;">00</font>
-  <br/>
   <img src="images/card.png" id="5" onclick="choose(5)"width="120"/><font style="visibility:hidden;">00</font>
+  <br/>
+  <br/>
   <img src="images/card.png" id="6" onclick="choose(6)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="7" onclick="choose(7)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="8" onclick="choose(8)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="9" onclick="choose(9)"width="120"/><font style="visibility:hidden;">00</font>
-  <br/>
-  <br/>
   <img src="images/card.png" id="10" onclick="choose(10)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="11" onclick="choose(11)"width="120"/><font style="visibility:hidden;">00</font>
+  <br/>
+  <br/>
   <img src="images/card.png" id="12" onclick="choose(12)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="13" onclick="choose(13)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="14" onclick="choose(14)"width="120"/><font style="visibility:hidden;">00</font>
-  <br/>
-  <br/>
   <img src="images/card.png" id="15" onclick="choose(15)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="16" onclick="choose(16)"width="120"/><font style="visibility:hidden;">00</font>
   <img src="images/card.png" id="17" onclick="choose(17)"width="120"/><font style="visibility:hidden;">00</font>
-  <img src="images/card.png" id="18" onclick="choose(18)"width="120"/><font style="visibility:hidden;">00</font>
-  <img src="images/card.png" id="19" onclick="choose(19)"width="120"/><font style="visibility:hidden;">00</font>
+  <br/>
+  <br/>
+    
 </body>
 
 </html>
