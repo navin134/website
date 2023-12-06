@@ -24,9 +24,10 @@
 	var secondCard;
 	var timer;
 	var bool = true;
-
+ var bool2 = true;
     function choose(imageNum){
     	//alert("chooseCalled");
+if(bool2) {
 		if(bool) {
 			bool = false;
 			firstCard = imageNum;//parseInt(this.id);//gets value of button just called through param
@@ -39,14 +40,15 @@
 			bool = true;
 			compare(imageNum);
 		}
+		 }
     }
     
     function compare(imageNum) {
-		
+		bool2 = false;
 		//console.log(firstCard);
 		//console.log(secondCard);
 		secondCard = imageNum;//this.id);//window.event.target.id);//gets id of button just called
-        document.getElementById(secondCard+"").src = frontList[secondCard];
+  document.getElementById(secondCard+"").src = frontList[secondCard];
 		if(frontList[secondCard] == frontList[firstCard]) {
 			//boolList[firstCard] = true;
 			//boolList[secondCard] = true;
@@ -69,6 +71,7 @@
 	function timeDelay() {
 		document.getElementById(firstCard+"").src = "images/card.png";
 		document.getElementById(secondCard+"").src = "images/card.png";
+		bool2 = true;
 		//document.getElementById("fields").disabled = "enabled";
 		/*for(var i=0; i<20; i++) {
 			document.getElementById(0+"").onclick = choose;
