@@ -15,7 +15,6 @@
 		["images/wand.png", 1],
 		["images/crystalBall.png", 1],
 		["images/bow.png", 1],
-	    	["images/bowl.png", 1],
 	];
 
 	var frontList = [];
@@ -96,7 +95,7 @@
 
     function randomImage() {
       while(true) {
-        var rand = parseInt(Math.random()*10);
+        var rand = parseInt(Math.random()*9);
         if(imageList[rand][1]>=0) {
         	imageList[rand][1]-=1;
             	break;
