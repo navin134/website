@@ -27,8 +27,7 @@
  var bool2 = true;
     function choose(imageNum){
     	//alert("chooseCalled");
-if(bool2) {
-		if(bool) {
+		if(bool && bool2 && "images/card.png"==document.getElementById(imageNum)) {
 			bool = false;
 			firstCard = imageNum;//parseInt(this.id);//gets value of button just called through param
 			document.getElementById(firstCard+"").src = frontList[firstCard];
@@ -41,7 +40,6 @@ if(bool2) {
 			compare(imageNum);
 		}
 		 }
-    }
     
     function compare(imageNum) {
 		bool2 = false;
